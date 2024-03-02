@@ -53,7 +53,10 @@ function App() {
     } 
 
     */}
-
+            
+   {/* 
+                                ==================== Object distructure  Method ================================
+            ***Choosing all variable crtl+D
 
     {
       Data.map(({fname,school,job,university})=>{
@@ -61,6 +64,17 @@ function App() {
       })
     }
 
+   */}
+
+{/* ====================avoid Error beause not used Key varaiable================================
+map method magin access karann puluwan parameter 3k(looping index,complete Array,return Element)
+***key ekak add kirima aniwaren sidu kalyuthuri,nattm identifer karagann ba react ekat componnents */}
+    {
+      Data.map(({fname,school,job,university},index)=>{
+        return <Post key={index} name={fname} school={school} university={university} job={job}/>
+      })
+    }
+   
 
 
 
