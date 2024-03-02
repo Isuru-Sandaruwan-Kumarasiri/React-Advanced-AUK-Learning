@@ -50,11 +50,21 @@ function App() {
       Data.map((obj)=>{
         return <Post name={obj.fname} school={obj.school} university={obj.university} job={obj.job}/>
       })
-    }  
+    } 
+
     */}
 
 
-    
+    {
+      Data.map(({fname,school,job,university})=>{
+        return <Post name={fname} school={school} university={university} job={job}/>
+      })
+    }
+
+
+
+
+
 
 
 
