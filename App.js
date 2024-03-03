@@ -3,7 +3,18 @@ import './App.css';
 import Post from './Components/Post';
 import Data from './data'
 
-
+const Mainblock=()=>{
+  return(
+    <>
+      {
+         Data.map(({fname,school,job,university})=>{
+          return <Post key={fname} name={fname} school={school} university={university} job={job}/>
+        })
+  
+      }
+    </>
+  )
+}
 function App() {
 
   const MainBlock= Data.map(({fname,school,job,university})=>{
@@ -34,6 +45,9 @@ function App() {
 
    */}
 
+
+
+
    {/*
   ====================avoid Error beause not used Key varaiable================================
 map method magin access karann puluwan parameter 3k(looping index,complete Array,return Element)
@@ -54,13 +68,13 @@ map method magin access karann puluwan parameter 3k(looping index,complete Array
 
 
 
-    {/* By Function Calling */}
+    {/* ==================By Function Calling ===============*/}
               {MainBlock}
 
 
+    {/* ==============Inside componentwise calling================== */}
 
-
-
+         <MainBlock/>
 
 
     
