@@ -2,19 +2,20 @@
 import './App.css';
 import Post from './Components/Post';
 import Data from './data'
+import { MyData } from './data';
 
-const Mainblock=()=>{
-  return(
-    <>
-      {
-         Data.map(({fname,school,job,university})=>{
-          return <Post key={fname} name={fname} school={school} university={university} job={job}/>
-        })
+// const Mainblock=()=>{
+//   return(
+//     <>
+//       {
+//          Data.map(({fname,school,job,university})=>{
+//           return <Post key={fname} name={fname} school={school} university={university} job={job}/>
+//         })
   
-      }
-    </>
-  )
-}
+//       }
+//     </>
+//   )
+// }
 function App() {
 
   const MainBlock= Data.map(({fname,school,job,university})=>{
@@ -72,9 +73,20 @@ map method magin access karann puluwan parameter 3k(looping index,complete Array
               {MainBlock}
 
 
-    {/* ==============Inside componentwise calling================== */}
+    {/* ==============Inside componentwise calling================== 
 
          <MainBlock/>
+
+    */}
+
+
+   {/* ==================Undefined error data handling (if hava undefined data ,check by ? symbol ) ===============*/}
+
+    {
+        MyData?.map(({fname,school,job,university},index)=>{
+          return <Post key={index} name={fname} school={school} university={university} job={job}/>
+        }) 
+    }
 
 
     
