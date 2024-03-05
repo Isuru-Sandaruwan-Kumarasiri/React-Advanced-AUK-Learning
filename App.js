@@ -1,8 +1,8 @@
-
-import './App.css';
-import Post from './Components/Post';
-import Data from './data'
-import { MyData } from './data';
+import { useState } from "react";
+import "./App.css";
+import Post from "./Components/Post";
+import Data from "./data";
+import { MyData } from "./data";
 
 // const Mainblock=()=>{
 //   return(
@@ -11,20 +11,37 @@ import { MyData } from './data';
 //          Data.map(({fname,school,job,university})=>{
 //           return <Post key={fname} name={fname} school={school} university={university} job={job}/>
 //         })
-  
+
 //       }
 //     </>
 //   )
 // }
 function App() {
+  const [theame,setTheame]=useState("Learning react from AUK Learning")
+  const MainBlock = Data.map(({ fname, school, job, university }) => {
+    return (
+      <Post
+        key={fname}
+        name={fname}
+        school={school}
+        university={university}
+        job={job}
+      />
+    );
+  });
 
-  const MainBlock= Data.map(({fname,school,job,university})=>{
-    return <Post key={fname} name={fname} school={school} university={university} job={job}/>
-  })
+  const Handle=()=>{
+     setTheame("Welcome")
+  }
+
+
 
   return (
     <>
-    {/*                           ==================== Normal Data Mapping Method ================================
+      <div className="main-container">
+        <h2>{theame}</h2>
+        <div className="main-block">
+          {/*                           ==================== Normal Data Mapping Method ================================
 
     {
       Data.map((obj)=>{
@@ -33,8 +50,8 @@ function App() {
     } 
 
     */}
-            
-   {/* 
+
+          {/* 
                                 ==================== Object distructure  Method ================================
             ***Choosing all variable crtl+D
 
@@ -46,10 +63,7 @@ function App() {
 
    */}
 
-
-
-
-   {/*
+          {/*
   ====================avoid Error beause not used Key varaiable================================
 map method magin access karann puluwan parameter 3k(looping index,complete Array,return Element)
 ***key ekak add kirima aniwaren sidu kalyuthuri,nattm identifer karagann ba react ekat componnents 
@@ -67,29 +81,45 @@ map method magin access karann puluwan parameter 3k(looping index,complete Array
 
     */}
 
+          {/* ==================By Function Calling ===============*/}
+          {MainBlock}
 
+          {/* ==============Inside componentwise calling================== 
 
-    {/* ==================By Function Calling ===============*/}
-              {MainBlock}
+     <MainBlock/>
 
+*/}
 
-    {/* ==============Inside componentwise calling================== 
+          {/* ==================Undefined error data handling (if hava undefined data ,check by ? symbol ) ===============*/}
 
-         <MainBlock/>
+          {MyData?.map(({ fname, school, job, university }, index) => {
+            return (
+              <Post
+                key={index}
+                name={fname}
+                school={school}
+                university={university}
+                job={job}
+              />
+            );
+          })}
+        </div>
+        <br />
+        <button
+          style={{
+            fontSize: "12px",
+            border: "1px solid red",
+            borderRadius:"15px",
+            backgroundColor:"lightblue",
+            padding: "7px 12px",
+            fontWeight:"900"
+          }}
 
-    */}
-
-
-   {/* ==================Undefined error data handling (if hava undefined data ,check by ? symbol ) ===============*/}
-
-    {
-        MyData?.map(({fname,school,job,university},index)=>{
-          return <Post key={index} name={fname} school={school} university={university} job={job}/>
-        }) 
-    }
-
-
-    
+          onClick={Handle}
+        >
+          Click me
+        </button>
+      </div>
     </>
   );
 }
