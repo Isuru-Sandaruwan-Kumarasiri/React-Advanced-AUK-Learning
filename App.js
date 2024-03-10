@@ -17,7 +17,13 @@ import { MyData } from "./data";
 //   )
 // }
 function App() {
-  const [theame,setTheame]=useState("Learning react from AUK Learning")
+  // const [theame,setTheame]=useState("Learning react from AUK Learning")
+  const [theame,setTheame]=useState({
+    fname: "isuru sandaruean",
+    job: "react-Developer",
+    university: "university of Peradeniya",
+    school: "R/st.Aloysious College",
+  })
   const MainBlock = Data.map(({ fname, school, job, university }) => {
     return (
       <Post
@@ -30,16 +36,23 @@ function App() {
     );
   });
 
-  const Handle=()=>{
-     setTheame("Welcome")
-  }
+  // const Handle=()=>{
+  //    setTheame("Welcome")
+  // }
+
+   const Handle=()=>{
+    setTheame({
+      ...theame,   //spread operator-get  all details from default theame 
+      fname:"Thilini Athukorala"
+   })
+   }
 
 
 
   return (
     <>
       <div className="main-container">
-        <h2>{theame}</h2>
+        <h2>{theame.fname}</h2>
         <div className="main-block">
           {/*                           ==================== Normal Data Mapping Method ================================
 
