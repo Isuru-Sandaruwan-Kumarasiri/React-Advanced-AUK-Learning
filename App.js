@@ -40,11 +40,26 @@ function App() {
   //    setTheame("Welcome")
   // }
 
+//we can use data set as the default value of useState 
+  // const [Data,setData]=useState(Data);
+
+
    const Handle=()=>{
     setTheame({
       ...theame,   //spread operator-get  all details from default theame 
       fname:"Thilini Athukorala"
    })
+
+  //  setData([//object ekak denakot squre braket use karnna
+  //   ...Data,
+  //   {
+  //     fname: "Nimal Kumarsiri",
+  //   job: "react-Developer",
+  //   university: "university of Peradeniya",
+  //   school: "R/st.Aloysious College",
+  //   }
+  // ])
+
    }
 
 
